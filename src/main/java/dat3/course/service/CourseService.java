@@ -20,6 +20,11 @@ public class CourseService {
         Course course = CourseRequest.courseFromRequest(courseRequest);
         course = courseRepository.save(course);
         return  new CourseResponse(course);
+    }
 
+    public CourseResponse deleteCourse(Long id){
+        Course course = courseRepository.findById(Math.toIntExact(id)).orElseThrow();
+        courseRepository.delete(course);
+        return new CourseResponse(course);
     }
 }
