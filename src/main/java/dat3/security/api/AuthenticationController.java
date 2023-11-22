@@ -1,5 +1,6 @@
 package dat3.security.api;
 
+import dat3.security.entity.Role;
 import dat3.security.service.UserDetailsServiceImp;
 import dat3.security.dto.LoginRequest;
 import dat3.security.dto.LoginResponse;
@@ -50,6 +51,11 @@ public class AuthenticationController {
       Authentication authentication = authenticationManager.authenticate(uat);
 
       UserWithRoles user = (UserWithRoles) authentication.getPrincipal();
+
+      if (user.getRoles().stream().anyMatch(role -> role.equals(Role.ADMIN))) {
+        throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Access denied for administrators.");
+      }
+
       Instant now = Instant.now();
       long expiry = tokenExpiration;
       String scope = authentication.getAuthorities().stream()
@@ -66,6 +72,43 @@ public class AuthenticationController {
       JwsHeader jwsHeader = JwsHeader.with(() -> "HS256").build();
       String token = encoder.encode(JwtEncoderParameters.from(jwsHeader, claims)).getTokenValue();
 
+      List<String> roles = user.getRoles().stream().map(role -> role.toString()).collect(Collectors.toList());
+      return ResponseEntity.ok()
+              .body(new LoginResponse(user.getUsername(), token, roles));
+
+    } catch (BadCredentialsException e) {
+      throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, UserDetailsServiceImp.WRONG_USERNAME_OR_PASSWORD);
+    }
+  }
+
+  @PostMapping("adminPortal-login")
+  public ResponseEntity<LoginResponse> adminPortal_login(@RequestBody LoginRequest request) {
+
+    try {
+      UsernamePasswordAuthenticationToken uat = new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword());
+      Authentication authentication = authenticationManager.authenticate(uat);
+
+      UserWithRoles user = (UserWithRoles) authentication.getPrincipal();
+
+      if (user.getRoles().stream().anyMatch(role -> role.equals(Role.USER))) {
+        throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Access denied for users.");
+      }
+
+      Instant now = Instant.now();
+      long expiry = tokenExpiration;
+      String scope = authentication.getAuthorities().stream()
+              .map(GrantedAuthority::getAuthority)
+              .collect(joining(" "));
+
+      JwtClaimsSet claims = JwtClaimsSet.builder()
+              .issuer(tokenIssuer)  //Only this for simplicity
+              .issuedAt(now)
+              .expiresAt(now.plusSeconds(tokenExpiration))
+              .subject(user.getUsername())
+              .claim("roles", scope)
+              .build();
+      JwsHeader jwsHeader = JwsHeader.with(() -> "HS256").build();
+      String token = encoder.encode(JwtEncoderParameters.from(jwsHeader, claims)).getTokenValue();
 
       List<String> roles = user.getRoles().stream().map(role -> role.toString()).collect(Collectors.toList());
       return ResponseEntity.ok()
@@ -74,6 +117,5 @@ public class AuthenticationController {
     } catch (BadCredentialsException e) {
       throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, UserDetailsServiceImp.WRONG_USERNAME_OR_PASSWORD);
     }
-
   }
 }
