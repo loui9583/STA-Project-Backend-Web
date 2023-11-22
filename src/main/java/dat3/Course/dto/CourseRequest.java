@@ -1,6 +1,7 @@
 package dat3.Course.dto;
 
 import dat3.Course.entity.Course;
+import dat3.airplane.Airplane;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 public class CourseRequest {
     private LocalDate courseDate;
     private String courseLocation;
-    private String airplane;
+    private int airplaneId;
     private String courseType;
     private String simulatorType;
     private double coursePrice;
@@ -22,7 +23,7 @@ public class CourseRequest {
 
     public static Course courseFromRequest(CourseRequest courseRequest){
     return Course.builder().courseDate(courseRequest.courseDate).courseLocation(courseRequest.courseLocation)
-            .airplane(courseRequest.airplane).courseType(courseRequest.courseType).simulatorType(courseRequest.simulatorType)
+            .airplaneId(courseRequest.airplaneId).courseType(courseRequest.courseType).simulatorType(courseRequest.simulatorType)
             .coursePrice(courseRequest.coursePrice).isEASAApproved(courseRequest.isEASAApproved).isATPLUnfreezingPossible(courseRequest.isATPLUnfreezingPossible)
             .build();
 

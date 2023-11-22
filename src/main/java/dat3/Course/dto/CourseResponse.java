@@ -3,6 +3,7 @@ package dat3.Course.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import dat3.Course.entity.Course;
+import dat3.airplane.Airplane;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -19,7 +20,7 @@ public class CourseResponse {
     @JsonFormat(pattern = "yyyy-MM-dd",shape = JsonFormat.Shape.STRING)
     private LocalDate courseDate;
     private String courseLocation;
-    private String airplane; //change to airplane object when implemented
+    private Airplane airplane; //change to airplane object when implemented
     private String courseType;
     private String simulatorType;
     private double coursePrice;

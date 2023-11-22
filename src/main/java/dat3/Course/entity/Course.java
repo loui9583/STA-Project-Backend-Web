@@ -1,10 +1,8 @@
 package dat3.Course.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import dat3.airplane.Airplane;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -30,7 +28,11 @@ public class Course {
     LocalDate courseDate;
     private String CourseInfo;
     private String courseLocation;
-    private String airplane; //change to airplane object when implemented
+    @ManyToOne
+    private Airplane airplane; //change to airplane object when implemented
+
+    private int airplaneId;
+
     private String courseType;
     private String simulatorType;
     private double coursePrice;
