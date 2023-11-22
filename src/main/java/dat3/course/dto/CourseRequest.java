@@ -1,7 +1,7 @@
 package dat3.course.dto;
 
 import dat3.course.entity.Course;
-import dat3.airplane.Airplane;
+import dat3.airplane.entity.Airplane;
 import dat3.course.entity.Course;
 import lombok.*;
 

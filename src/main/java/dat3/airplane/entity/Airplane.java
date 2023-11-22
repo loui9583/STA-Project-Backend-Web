@@ -1,7 +1,7 @@
 package dat3.airplane.entity;
 
 
-import dat3.Course.entity.Course;
+import dat3.course.entity.Course;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
