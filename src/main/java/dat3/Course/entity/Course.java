@@ -1,7 +1,7 @@
 package dat3.Course.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import dat3.airplane.Airplane;
+import dat3.airplane.entity.Airplane;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

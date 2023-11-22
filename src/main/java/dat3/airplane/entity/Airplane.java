@@ -1,4 +1,4 @@
-package dat3.airplane;
+package dat3.airplane.entity;
 
 
 import dat3.Course.entity.Course;
