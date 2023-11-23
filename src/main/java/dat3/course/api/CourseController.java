@@ -13,9 +13,13 @@ import org.springframework.web.bind.annotation.*;
 public class CourseController {
     CourseService courseService;
 
+    public CourseController(CourseService courseService) {
+        this.courseService = courseService;
+    }
+
     @PostMapping
-    public CourseResponse addCourse(@RequestBody CourseRequest courseRequest, Airplane airplane){
-    return courseService.addCourse(courseRequest, airplane);
+    public CourseResponse addCourse(@RequestBody CourseRequest courseRequest){
+    return courseService.addCourse(courseRequest);
     }
 
     @PostMapping("/delete/{id}")
