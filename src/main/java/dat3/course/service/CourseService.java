@@ -1,5 +1,6 @@
 package dat3.course.service;
 
+import dat3.airplane.entity.Airplane;
 import dat3.course.dto.CourseRequest;
 import dat3.course.dto.CourseResponse;
 
@@ -16,8 +17,8 @@ public class CourseService {
         this.courseRepository = courseRepository;
     }
 
-    public CourseResponse addCourse(CourseRequest courseRequest){
-        Course course = CourseRequest.courseFromRequest(courseRequest);
+    public CourseResponse addCourse(CourseRequest courseRequest, Airplane airplane){
+        Course course = CourseRequest.courseFromRequest(courseRequest, airplane);
         course = courseRepository.save(course);
         return  new CourseResponse(course);
     }

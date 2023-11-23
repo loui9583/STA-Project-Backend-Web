@@ -22,12 +22,18 @@ public class CourseRequest {
     private boolean isEASAApproved;
     private boolean isATPLUnfreezingPossible;
 
-    public static Course courseFromRequest(CourseRequest courseRequest){
-    return Course.builder().courseDate(courseRequest.courseDate).courseLocation(courseRequest.courseLocation)
-            .airplaneId(courseRequest.airplaneId).courseType(courseRequest.courseType).simulatorType(courseRequest.simulatorType)
-            .coursePrice(courseRequest.coursePrice).isEASAApproved(courseRequest.isEASAApproved).isATPLUnfreezingPossible(courseRequest.isATPLUnfreezingPossible)
-            .build();
-
+    public static Course courseFromRequest(CourseRequest courseRequest, Airplane airplane) {
+        return Course.builder()
+                .courseDate(courseRequest.getCourseDate())
+                .courseLocation(courseRequest.getCourseLocation())
+                .airplane(airplane) // Set the Airplane object directly
+                .courseType(courseRequest.getCourseType())
+                .simulatorType(courseRequest.getSimulatorType())
+                .coursePrice(courseRequest.getCoursePrice())
+                .isEASAApproved(courseRequest.isEASAApproved())
+                .isATPLUnfreezingPossible(courseRequest.isATPLUnfreezingPossible())
+                .build();
     }
+
 
 }

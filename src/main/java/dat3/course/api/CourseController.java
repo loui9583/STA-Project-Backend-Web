@@ -1,5 +1,6 @@
 package dat3.course.api;
 
+import dat3.airplane.entity.Airplane;
 import dat3.course.dto.CourseRequest;
 import dat3.course.dto.CourseResponse;
 import dat3.course.service.CourseService;
@@ -13,8 +14,8 @@ public class CourseController {
     CourseService courseService;
 
     @PostMapping
-    public CourseResponse addCourse(@RequestBody CourseRequest courseRequest){
-    return courseService.addCourse(courseRequest);
+    public CourseResponse addCourse(@RequestBody CourseRequest courseRequest, Airplane airplane){
+    return courseService.addCourse(courseRequest, airplane);
     }
 
     @PostMapping("/delete/{id}")
