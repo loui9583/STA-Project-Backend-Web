@@ -20,7 +20,7 @@ public class CourseResponse {
     @JsonFormat(pattern = "yyyy-MM-dd",shape = JsonFormat.Shape.STRING)
     private LocalDate courseDate;
     private String courseLocation;
-    private Airplane airplane; //change to airplane object when implemented
+    private int airplaneId;
     private String courseType;
     private String simulatorType;
     private double coursePrice;
@@ -31,7 +31,7 @@ public class CourseResponse {
         this.id = course.getId();
         this.courseDate = course.getCourseDate();
         this.courseLocation = course.getCourseLocation();
-        this.airplane = course.getAirplane();
+        this.airplaneId = course.getAirplane().getId();
         this.courseType = course.getCourseType();
         this.simulatorType = course.getSimulatorType();
         this.coursePrice = course.getCoursePrice();

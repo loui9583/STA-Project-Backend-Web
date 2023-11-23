@@ -17,10 +17,10 @@ public class CourseService {
         this.courseRepository = courseRepository;
     }
 
-    public CourseResponse addCourse(CourseRequest courseRequest, Airplane airplane){
-        Course course = CourseRequest.courseFromRequest(courseRequest, airplane);
+    public CourseResponse addCourse(CourseRequest courseRequest){
+        Course course = CourseRequest.courseFromRequest(courseRequest);
         course = courseRepository.save(course);
-        return  new CourseResponse(course);
+        return new CourseResponse(course);
     }
 
     public CourseResponse deleteCourse(Long id){

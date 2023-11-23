@@ -29,9 +29,7 @@ public class Course {
     private String CourseInfo;
     private String courseLocation;
     @ManyToOne
-    @JoinColumn(name = "airplane_id")
-    private Airplane airplane; //change to airplane object when implemented
-
+    private Airplane airplane;
     private String courseType;
     private String simulatorType;
     private double coursePrice;
