@@ -31,4 +31,14 @@ public class CourseController {
             return new ResponseEntity<>("Course not found or unable to delete", HttpStatus.NOT_FOUND);
         }
     }
+
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<String> editCourse(@RequestBody CourseRequest courseRequest, @PathVariable Long id) {
+        CourseResponse editedCourse = courseService.editCourse(courseRequest, id);
+        if (editedCourse != null) {
+            return new ResponseEntity<>("Course edited successfully", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Course not found or unable to edit", HttpStatus.NOT_FOUND);
+        }
+    }
 }
