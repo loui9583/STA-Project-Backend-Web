@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequestMapping("api/courses")
 @RestController
 public class CourseController {
@@ -40,5 +42,15 @@ public class CourseController {
         } else {
             return new ResponseEntity<>("Course not found or unable to edit", HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping()
+    public List<CourseResponse> getAllCourses() {
+        return courseService.getAllCourses();
+    }
+
+    @GetMapping("/{id}")
+    public CourseResponse getCourseById(@PathVariable Long id) {
+        return courseService.getCourseById(id);
     }
 }
