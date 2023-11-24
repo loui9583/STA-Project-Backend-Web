@@ -1,5 +1,10 @@
 package dat3.rename_me.configuration;
 
+import dat3.airplane.entity.Airplane;
+import dat3.airplane.repository.AirplaneRepository;
+import dat3.course.dto.CourseRequest;
+import dat3.course.repository.CourseRepository;
+import dat3.course.service.CourseService;
 import dat3.security.entity.Role;
 import dat3.security.entity.UserWithRoles;
 import org.springframework.boot.ApplicationArguments;
@@ -8,6 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import dat3.security.repository.UserWithRolesRepository;
 
+import java.time.LocalDate;
+
 @Controller
 public class SetupDevUsers implements ApplicationRunner {
 
@@ -15,15 +22,28 @@ public class SetupDevUsers implements ApplicationRunner {
     PasswordEncoder passwordEncoder;
     String passwordUsedByAll;
 
-    public SetupDevUsers(UserWithRolesRepository userWithRolesRepository, PasswordEncoder passwordEncoder) {
+    AirplaneRepository airplaneRepository;
+
+    CourseRepository courseRepository;
+
+    CourseService courseService;
+
+    public SetupDevUsers(UserWithRolesRepository userWithRolesRepository, PasswordEncoder passwordEncoder,
+                         AirplaneRepository airplaneRepository, CourseService courseService) {
         this.userWithRolesRepository = userWithRolesRepository;
         this.passwordEncoder = passwordEncoder;
         passwordUsedByAll = "test12";
+        this.airplaneRepository=airplaneRepository;
+        this.courseService=courseService;
     }
+
+
 
     @Override
     public void run(ApplicationArguments args) {
         setupUserWithRoleUsers();
+        setUpAirplanes();
+        setUpCourses();
     }
 
      /*****************************************************************************************
@@ -55,5 +75,49 @@ public class SetupDevUsers implements ApplicationRunner {
         userWithRolesRepository.save(user2);
         userWithRolesRepository.save(user3);
         userWithRolesRepository.save(user4);
+    }
+
+    private void setUpAirplanes(){
+        //Oprettelse af fly
+        Airplane airplane1 = new Airplane("B737", true);
+        Airplane airplane2 = new Airplane("B787", true);
+        Airplane airplane3 = new Airplane("B777", true);
+        Airplane airplane4 = new Airplane("A320", true);
+        airplaneRepository.save(airplane1);
+        airplaneRepository.save(airplane2);
+        airplaneRepository.save(airplane3);
+        airplaneRepository.save(airplane4);
+    }
+
+    private void setUpCourses(){
+        //Oprettelse af kursus
+        LocalDate date1 = LocalDate.parse("2024-12-24");
+        LocalDate date2 = LocalDate.parse("2025-08-11");
+        LocalDate date3 = LocalDate.parse("2025-04-22");
+        LocalDate date4 = LocalDate.parse("2025-01-05");
+
+
+
+
+        CourseRequest courseRequest1 = new CourseRequest(date1, "Copenhagen", 1,
+                "TypeRating", "Full Motion Simulator",
+                20.000, true, true);
+
+        CourseRequest courseRequest2 = new CourseRequest(date2, "Madrid", 2,
+                "TypeRating", "Full Motion Simulator",
+                20.000, true, true);
+
+        CourseRequest courseRequest3 = new CourseRequest(date3, "Heathrow", 3,
+                "TypeRating", "Full Motion Simulator",
+                20.000, true, true);
+
+        CourseRequest courseRequest4 = new CourseRequest(date4, "London", 4,
+                "TypeRating", "Full Motion Simulator",
+                20.000, true, true);
+
+        courseService.addCourse(courseRequest1);
+        courseService.addCourse(courseRequest2);
+        courseService.addCourse(courseRequest3);
+        courseService.addCourse(courseRequest4);
     }
 }
