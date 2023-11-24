@@ -12,6 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CourseService {
     CourseRepository courseRepository;
@@ -46,6 +49,19 @@ public class CourseService {
 
         courseRepository.save(course);
 
+        return new CourseResponse(course);
+    }
+
+    public List<CourseResponse> getAllCourses() {
+        List<Course> courses = courseRepository.findAll();
+        return courses.stream()
+                .map(CourseResponse::new)
+                .collect(Collectors.toList());
+    }
+
+    public CourseResponse getCourseById(Long id) {
+        Course course = courseRepository.findById(Math.toIntExact(id))
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found"));
         return new CourseResponse(course);
     }
 }
