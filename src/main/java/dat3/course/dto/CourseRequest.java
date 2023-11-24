@@ -19,8 +19,8 @@ public class CourseRequest {
     private String courseType;
     private String simulatorType;
     private double coursePrice;
-    private boolean isEASAApproved;
-    private boolean isATPLUnfreezingPossible;
+    private String isEASAApproved;
+    private String isATPLUnfreezingPossible;
 
     public static Course courseFromRequest(CourseRequest courseRequest) {
         return Course.builder()
@@ -30,8 +30,8 @@ public class CourseRequest {
                 .courseType(courseRequest.getCourseType())
                 .simulatorType(courseRequest.getSimulatorType())
                 .coursePrice(courseRequest.getCoursePrice())
-                .isEASAApproved(courseRequest.isEASAApproved())
-                .isATPLUnfreezingPossible(courseRequest.isATPLUnfreezingPossible())
+                .isEASAApproved(courseRequest.getIsEASAApproved())
+                .isATPLUnfreezingPossible(courseRequest.getIsATPLUnfreezingPossible())
                 .build();
     }
 }

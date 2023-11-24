@@ -73,7 +73,8 @@ public class SecurityConfig {
 
             .requestMatchers(mvcMatcherBuilder.pattern("/error")).permitAll()
             .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.POST, "/api/auth/adminPortal-login")).permitAll()
-            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET, "/api/courses/*")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET, "/api/courses")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.POST, "/api/courses")).permitAll()
             .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.PUT, "/api/courses/edit/{id}")).permitAll()
             .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/api/airplanes")).permitAll()
 
