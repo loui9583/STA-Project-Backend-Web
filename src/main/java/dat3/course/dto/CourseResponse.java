@@ -24,8 +24,8 @@ public class CourseResponse {
     private String courseType;
     private String simulatorType;
     private double coursePrice;
-    private String isEASAApproved;
-    private String isATPLUnfreezingPossible;
+    private boolean isEASAApproved;
+    private boolean isATPLUnfreezingPossible;
 
     public CourseResponse(Course course){
         this.id = course.getId();
@@ -35,8 +35,8 @@ public class CourseResponse {
         this.courseType = course.getCourseType();
         this.simulatorType = course.getSimulatorType();
         this.coursePrice = course.getCoursePrice();
-        this.isEASAApproved = course.getIsEASAApproved();
-        this.isATPLUnfreezingPossible = course.getIsATPLUnfreezingPossible();
+        this.isEASAApproved = course.isEASAApproved();
+        this.isATPLUnfreezingPossible = course.isATPLUnfreezingPossible();
 
     }
 }

@@ -33,8 +33,8 @@ public class Course {
     private String courseType;
     private String simulatorType;
     private double coursePrice;
-    private String isEASAApproved;
-    private String isATPLUnfreezingPossible;
+    private boolean isEASAApproved;
+    private boolean isATPLUnfreezingPossible;
 
 }
 
