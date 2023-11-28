@@ -18,14 +18,11 @@ public class EmailSender {
     *
     * */
 
-
+    /*TODO
+             Hvis det skal bruges rigtigt skal vi
+             bruge smtp fra STA's rigtige mail
+          */
     public void sendContactEmail(
-
-            /*TODO
-               Hvis det skal bruges rigtigt skal vi
-               bruge smtp fra STA's rigtige mail
-            */
-
             String userContactMail, String emailContent) {
 
         String companyMail = System.getenv("companyMail");
