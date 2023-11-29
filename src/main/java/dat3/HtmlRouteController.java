@@ -34,4 +34,23 @@ public class HtmlRouteController {
     String a320() {
         return "a320.html";
     }
+
+    @GetMapping("b737")
+    String b737() {
+        return "b737.html";
+    }
+
+    @GetMapping("b777")
+    String b777() {
+        return "b777.html";
+    }
+
+    @GetMapping("b787")
+    String b787() {
+        return "b787.html";
+    }
 }
+
+
+
+
