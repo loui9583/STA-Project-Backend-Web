@@ -29,4 +29,9 @@ public class HtmlRouteController {
     String typerating() {
         return "typerating.html";
     }
+
+    @GetMapping("a320")
+    String a320() {
+        return "a320.html";
+    }
 }
