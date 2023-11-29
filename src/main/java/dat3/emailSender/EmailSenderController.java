@@ -12,10 +12,10 @@ public class EmailSenderController {
 
     EmailSender emailSender = new EmailSender();
 
-    @PostMapping("/user-email/{userContactMail}/email-content/{mailContent}")
-    public String sendMail(@PathVariable String userContactMail, @PathVariable String mailContent){
+    @PostMapping("/user-email/{userContactMail}/email-content/{mailContent}/customer-name/{customerName}")
+    public String sendMail(@PathVariable String userContactMail, @PathVariable String mailContent, @PathVariable String customerName){
 
-        emailSender.sendContactEmail(userContactMail,mailContent);
+        emailSender.sendContactEmail(userContactMail,mailContent,customerName);
 
         return "Email sent successfully to " + userContactMail;
     }

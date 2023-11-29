@@ -10,12 +10,10 @@ public class HtmlRouteController {
         return "index.html";
     }
 
-
     @GetMapping("/index")
     String slashIndex() {
         return "index.html";
     }
-
 
     @GetMapping("about")
     String about() {

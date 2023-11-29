@@ -5,7 +5,7 @@ async function sendEmail() {
     const message = document.getElementById("message").value;
     const formString = `Name: ${name}. Email: ${email}. Subject: ${subject}. Message: ${message}`
 
-    const response = await fetch("api/sendEmail/user-email/" + email + "/email-content/" + formString, {
+    const response = await fetch("api/sendEmail/user-email/" + email + "/email-content/" + formString + "/customer-name/" + name, {
         method: 'POST',
     });
 }
