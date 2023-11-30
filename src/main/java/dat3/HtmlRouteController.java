@@ -7,48 +7,51 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HtmlRouteController {
     @GetMapping("")
     String index() {
-        return "index.html";
+        return "/html/pages/index/index.html";
     }
 
     @GetMapping("/index")
     String slashIndex() {
-        return "index.html";
+        return "/html/pages/index/index.html";
     }
 
     @GetMapping("about")
     String about() {
-        return "about.html";
+        return "/html/pages/about/about.html";
     }
 
     @GetMapping("contact")
     String contact() {
-        return "contact.html";
+        return "/html/pages/contact/contact.html";
     }
 
     @GetMapping("typerating")
     String typerating() {
-        return "typerating.html";
+        return "/html/pages/typerating/typerating.html";
     }
 
     @GetMapping("a320")
     String a320() {
-        return "a320.html";
+        return "/html/pages/typerating/a320.html";
     }
 
     @GetMapping("b737")
     String b737() {
-        return "b737.html";
+        return "/html/pages/typerating/b737.html";
     }
 
     @GetMapping("b777")
     String b777() {
-        return "b777.html";
+        return "/html/pages/typerating/b777.html";
     }
 
     @GetMapping("b787")
     String b787() {
-        return "b787.html";
+        return "/html/pages/typerating/b787.html";
     }
+
+    @GetMapping("lpc")
+    String lpc() { return "/html/pages/lpc/lpc.html";}
 }
 
 
