@@ -1,0 +1,9 @@
+.container-fluid img {
+  border-radius: 5px;
+}
+
+h4 {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+}

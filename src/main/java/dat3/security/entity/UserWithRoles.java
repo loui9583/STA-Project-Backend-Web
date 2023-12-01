@@ -104,4 +104,5 @@ public class UserWithRoles implements UserDetails {
 
   @Override
   public boolean isCredentialsNonExpired() { return enabled; }
+
 }
