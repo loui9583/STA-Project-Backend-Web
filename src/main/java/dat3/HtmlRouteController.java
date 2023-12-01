@@ -52,6 +52,9 @@ public class HtmlRouteController {
 
     @GetMapping("lpc")
     String lpc() { return "/html/pages/lpc/lpc.html";}
+
+    @GetMapping("sfitri")
+    String sfitri() { return "/html/pages/sfitri/sfitri.html";}
 }
 
 
