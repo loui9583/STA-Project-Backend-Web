@@ -11,11 +11,13 @@ import lombok.*;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TestimonialResponse {
+    private int id;
     private String text;
     private String image;
     private String submissionName;
 
-    public TestimonialResponse(Testimonial testimonial){
+    public TestimonialResponse(Testimonial testimonial) {
+        this.id = testimonial.getId();
         this.text = testimonial.getText();
         this.image = testimonial.getImage();
         this.submissionName = testimonial.getSubmissionName();
