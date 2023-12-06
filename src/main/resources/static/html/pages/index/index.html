@@ -182,28 +182,24 @@
                     <blockquote>${data[i].text}
                         <div className="arrow"></div>
                     </blockquote>
-                    <img src="https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=170667a&w=0&k=20&c=m-F9Doa2ecNYEEjeplkFCmZBlc5tm1pl1F7cBCh9ZzM="
-                         alt="sample47"/>
                     <div className="author">
                         <p className="mt-2">${data[i].submissionName}</p>
                     </div>
                 </figure>
             </div>`;
-            }
+            } else {
             testimonialString+=  `
             <div className="carousel-item" data-bs-interval="5000">
             <figure className="snip1139 mx-auto">
             <blockquote>${data[i].text}
             <div className="arrow"></div>
             </blockquote>
-            <img src="https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=170667a&w=0&k=20&c=m-F9Doa2ecNYEEjeplkFCmZBlc5tm1pl1F7cBCh9ZzM="
-            alt="sample47"/>
             <div className="author">
             <p className="mt-2">${data[i].submissionName}</p>
             </div>
             </figure>
             </div>
-              `;}
+              `;}}
 
             document.getElementById("carousel-container").innerHTML=testimonialString;
 
