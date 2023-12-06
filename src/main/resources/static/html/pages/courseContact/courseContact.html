@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | ScandiTraining</title>
+    <link rel="icon" href="/billeder/stalogo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap">
+    <link rel="stylesheet" href="/css/general/content.css">
+    <link rel="stylesheet" href="/css/pages/contact/contact.css">
+    <link rel="stylesheet" href="/css/general/navbar.css">
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="content-container">
+        <div class="content-inner-container container">
+            <div class="contact-form">
+                <a href="contact" class="custom-button">Other Inquiries</a>
+                <br>
+                <h2 style="position: relative; display: inline-block;">Contact Us</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone-number">Phone Number:</label>
+                        <input type="text" id="phone-number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input id="address" type="text" required></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-type">Course:</label>
+                        <select id="course-type" class="form-select">
+                            <option value="B737 LPC Revalidation">B737 LPC Revalidation</option>
+                            <option value="B737 LPC Renewal">B737 LPC Renewal</option>
+                            <option value="B737 Type Rating">B737 Type Rating</option>
+                            <option value="B737 SFI/TRI Course">B737 SFI/TRI Course</option>
+                            <option value="B787 LPC Revalidation">B787 LPC Revalidation</option>
+                            <option value="B787 LPC Renewal">B787 LPC Renewal</option>
+                            <option value="B787 Type Rating">B787 Type Rating</option>
+                            <option value="B787 SFI/TRI Course">B787 SFI/TRI Course</option>
+                            <option value="B777 LPC Revalidation">B777 LPC Revalidation</option>
+                            <option value="B777 LPC Renewal">B777 LPC Renewal</option>
+                            <option value="B777 Type Rating">B777 Type Rating</option>
+                            <option value="B777 SFI/TRI Course">B777 SFI/TRI Course</option>
+                            <option value="A320 LPC Revalidation">A320 LPC Revalidation</option>
+                            <option value="A320 LPC Renewal">A320 LPC Renewal</option>
+                            <option value="A320 Type Rating">A320 Type Rating</option>
+                            <option value="A320 SFI/TRI Course">A320 SFI/TRI Course</option>
+                            <option value="SFI/TRI Refresher Seminar">SFI/TRI Refresher Seminar</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="license-country">License Country:</label>
+                        <input id="license-country" required></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="license">License:</label>
+                        <select id="license" class="form-select" required>
+                            <option value="esea">EASA</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rating-expiry-date">Rating Expiry Date:</label>
+                        <input type="date" id="rating-expiry-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="flight-hours">Flight Hours on airplane type in question. (Ex. B737: 4500h):</label>
+                        <input id="flight-hours" rows="3" required></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-flight-date">Date of last flight on airplane type in question:</label>
+                        <input type="date" id="last-flight-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="otherMPA">Active or current on other MPA type since expiry:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="otherMPA" id="otherMPAYes" value="yes"
+                                required>
+                            <label class="form-check-label" for="otherMPAYes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="otherMPA" id="otherMPANo" value="no"
+                                required>
+                            <label class="form-check-label" for="otherMPANo">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="otherPBN">PBN endorsement on IR:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="otherPBN" id="otherPBNYes" value="yes"
+                                required>
+                            <label class="form-check-label" for="otherPBNYes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="otherPBN" id="otherBPNNo" value="no"
+                                required>
+                            <label class="form-check-label" for="otherBPNNo">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="position">Position:</label>
+                        <select id="position" class="form-select" required>
+                            <option value="">Select Position</option>
+                            <option value="FO">First Officer (FO)</option>
+                            <option value="CMD">Commander (CMD)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="venue">Preferred Venue:</label>
+                        <select id="venue" name="venue" class="form-select">
+                            <option value="">Select Venue</option>
+                            <option value="Abu Dhabi">Abu Dhabi</option>
+                            <option value="Amsterdam">Amsterdam</option>
+                            <option value="Barcelona">Barcelona</option>
+                            <option value="Berlin">Berlin</option>
+                            <option value="Brussels">Brussels</option>
+                            <option value="Burgees Hill">Burgees Hill</option>
+                            <option value="Copenhagen">Copenhagen</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Dublin">Dublin</option>
+                            <option value="Essen">Essen</option>
+                            <option value="Frankfurt">Frankfurt</option>
+                            <option value="Gatwick">Gatwick</option>
+                            <option value="Madrid">Madrid</option>
+                            <option value="Heathrow">Heathrow</option>
+                            <option value="Helsinki">Helsinki</option>
+                            <option value="Manchester">Manchester</option>
+                            <option value="Milan">Milan</option>
+                            <option value="Mönchengladbach">Mönchengladbach</option>
+                            <option value="Münich">Münich</option>
+                            <option value="Oslo">Oslo</option>
+                            <option value="Palma De Mallorca">Palma De Mallorca</option>
+                            <option value="Paris">Paris</option>
+                            <option value="Prague">Prague</option>
+                            <option value="Stockholm">Stockholm</option>
+                            <option value="Vienna">Vienna</option>
+                            <option value="Vilnius">Vilnius</option>
+                            <option value="Zürich">Zürich</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="privacyPolicy">
+                            I agree to the
+                            <a href="/privatepolicy">Privacy Policy</a>
+                            <input style="margin-left: 10px;" class="form-check-input" value="yes" type="checkbox"
+                                required>
+                        </label>
+                    </div>
+                    <button style="margin-bottom: 15px;" onclick="sendEmail2()" id="submitButton">Submit</button>
+                    <div id="statusMessage"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+
+    <script src="/js/general/navfooterloader.js"></script>
+    <script src="/js/contact/contact.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
