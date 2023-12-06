@@ -100,7 +100,8 @@
             <h4 class="mt-4 "><b>What our customers say..</b></h4>
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" id="carousel-container">
-                   
+
+
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
                         data-bs-slide="prev">
@@ -176,35 +177,39 @@
         const data = await response.json();
         for (let i = 0; i<data.length; i++){
             if (i==0){
-            testimonialString+=
-                `<div className="carousel-item active" data-bs-interval="5000">
-                <figure className="snip1139 mx-auto">
+                testimonialString+=
+                    `<div class="carousel-item active" data-bs-interval="5000">
+                <figure class="snip1139 mx-auto">
                     <blockquote>${data[i].text}
-                        <div className="arrow"></div>
+                        <div class="arrow"></div>
                     </blockquote>
-                    <div className="author">
-                        <p className="mt-2">${data[i].submissionName}</p>
+                    <img src="../../billeder/profile.jpg"
+                                 alt="sample47"/>
+                    <div class="author">
+                        <p class="mt-2">${data[i].submissionName}</p>
                     </div>
                 </figure>
             </div>`;
             } else {
-            testimonialString+=  `
-            <div className="carousel-item" data-bs-interval="5000">
-            <figure className="snip1139 mx-auto">
+                testimonialString+=  `
+            <div class="carousel-item" data-bs-interval="5000">
+            <figure class="snip1139 mx-auto">
             <blockquote>${data[i].text}
-            <div className="arrow"></div>
+            <div class="arrow"></div>
             </blockquote>
-            <div className="author">
-            <p className="mt-2">${data[i].submissionName}</p>
+            <img src="../../billeder/profile.jpg"
+                                 alt="sample47"/>
+            <div class="author">
+            <p class="mt-2">${data[i].submissionName}</p>
             </div>
             </figure>
             </div>
               `;}}
-
-            document.getElementById("carousel-container").innerHTML=testimonialString;
+        document.getElementById("carousel-container").innerHTML=testimonialString;
 
     }
     getTestimonials();
+
 </script>
 
 <script src="https://code.jquery.com/jquery-3.7.1.js"
