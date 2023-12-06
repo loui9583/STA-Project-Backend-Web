@@ -99,60 +99,8 @@
         <div class="testimonial-container">
             <h4 class="mt-4 "><b>What our customers say..</b></h4>
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="5000">
-
-                        <figure class="snip1139 mx-auto">
-                            <blockquote>Sometimes I think the surest sign that intelligent life exists elsewhere in
-                                the
-                                universe
-                                is that none of it has tried to contact us.
-                                <div class="arrow"></div>
-                            </blockquote>
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample3.jpg"
-                                 alt="sample3"/>
-                            <div class="author">
-                                <p class="mt-2">Pelican Steve</p>
-                            </div>
-                        </figure>
-
-                    </div>
-
-                    <div class="carousel-item" data-bs-interval="5000">
-
-                        <figure class="snip1139 mx-auto">
-                            <blockquote>I don't need to compromise on my principles, because they don't have the
-                                slightest
-                                bearing on what happens to me anyway.
-                                <div class="arrow"></div>
-                            </blockquote>
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample47.jpg"
-                                 alt="sample47"/>
-                            <div class="author">
-                                <p class="mt-2">Max Conversion</p>
-                            </div>
-                        </figure>
-
-                    </div>
-
-
-                    <div class="carousel-item" data-bs-interval="5000">
-
-                        <figure class="snip1139 mx-auto">
-                            <blockquote>That's the problem with nature, something's always stinging you or oozing
-                                mucous
-                                all
-                                over you. Let's go and watch TV.
-                                <div class="arrow"></div>
-                            </blockquote>
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample17.jpg"
-                                 alt="sample17"/>
-                            <div class="author">
-                                <p class="mt-2">Eleanor Faint</p>
-                            </div>
-                        </figure>
-
-                    </div>
+                <div class="carousel-inner" id="carousel-container">
+                   
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
                         data-bs-slide="prev">
@@ -221,25 +169,46 @@
 </script>
 
 <script id="getTestimonials">
-    <div className="carousel-item" data-bs-interval="5000">
 
-        <figure className="snip1139 mx-auto">
-            <blockquote>I don't need to compromise on my principles, because they don't have the
-                slightest
-                bearing on what happens to me anyway.
-                <div className="arrow"></div>
-            </blockquote>
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample47.jpg"
-                 alt="sample47"/>
-            <div className="author">
-                <p className="mt-2">Max Conversion</p>
-            </div>
-        </figure>
-
-    </div>
     async function getTestimonials(){
+        let testimonialString="";
+        const response = await fetch("/api/testimonials");
+        const data = await response.json();
+        for (let i = 0; i<data.length; i++){
+            if (i==0){
+            testimonialString+=
+                `<div className="carousel-item active" data-bs-interval="5000">
+                <figure className="snip1139 mx-auto">
+                    <blockquote>${data[i].text}
+                        <div className="arrow"></div>
+                    </blockquote>
+                    <img src="https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=170667a&w=0&k=20&c=m-F9Doa2ecNYEEjeplkFCmZBlc5tm1pl1F7cBCh9ZzM="
+                         alt="sample47"/>
+                    <div className="author">
+                        <p className="mt-2">${data[i].submissionName}</p>
+                    </div>
+                </figure>
+            </div>`;
+            }
+            testimonialString+=  `
+            <div className="carousel-item" data-bs-interval="5000">
+            <figure className="snip1139 mx-auto">
+            <blockquote>${data[i].text}
+            <div className="arrow"></div>
+            </blockquote>
+            <img src="https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=170667a&w=0&k=20&c=m-F9Doa2ecNYEEjeplkFCmZBlc5tm1pl1F7cBCh9ZzM="
+            alt="sample47"/>
+            <div className="author">
+            <p className="mt-2">${data[i].submissionName}</p>
+            </div>
+            </figure>
+            </div>
+              `;}
+
+            document.getElementById("carousel-container").innerHTML=testimonialString;
 
     }
+    getTestimonials();
 </script>
 
 <script src="https://code.jquery.com/jquery-3.7.1.js"
