@@ -16,8 +16,6 @@
 </head>
 
 <body>
-
-    
     <div id="navbar-container"></div>
 
     <div class="content-container">
@@ -42,11 +40,12 @@
                         <label for="message">Message:</label>
                         <textarea id="message" rows="3" required></textarea>
                     </div>
-                    <div class="form-group" id="privacyPolicyGroup">
-                        <input type="checkbox" id="privacyPolicy" required>
+                    <div class="form-group">
                         <label for="privacyPolicy">
                             I agree to the
                             <a href="/privatepolicy">Privacy Policy</a>
+                            <input style="margin-left: 10px;" class="form-check-input" value="yes" type="checkbox"
+                                   required>
                         </label>
                     </div>
                     <button onclick="sendEmail()" id="submitButton">Submit</button>
