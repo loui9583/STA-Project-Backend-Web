@@ -25,8 +25,8 @@ public class HtmlRouteController {
         return "/html/pages/contact/contact.html";
     }
 
-    @GetMapping("privatepolicy")
-    String privatepolicy() {return "/html/pages/contact/privatepolicy.html";}
+    @GetMapping("privacypolicy")
+    String privatepolicy() {return "/html/pages/contact/privacypolicy.html";}
 
     @GetMapping("typerating")
     String typerating() {

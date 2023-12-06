@@ -43,10 +43,10 @@
                         <textarea id="message" rows="3" required></textarea>
                     </div>
                     <div class="form-group" id="privacyPolicyGroup">
-                        <input type="checkbox" id="privacyPolicy" required>
-                        <label for="privacyPolicy">
+                        <label for="privacyPolicy" class="privacy-policy">
+                            <input class="checkbox" type="checkbox" id="privacyPolicy" required>
                             I agree to the
-                            <a href="/privatepolicy">Privacy Policy</a>
+                            <a href="/privacypolicy" class="privacy-policy-link">Privacy Policy </a>
                         </label>
                     </div>
                     <button onclick="sendEmail()" id="submitButton">Submit</button>
