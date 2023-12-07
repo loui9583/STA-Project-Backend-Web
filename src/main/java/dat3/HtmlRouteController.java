@@ -25,6 +25,9 @@ public class HtmlRouteController {
         return "/html/pages/contact/contact.html";
     }
 
+    @GetMapping("privacypolicy")
+    String privatepolicy() {return "/html/pages/contact/privacypolicy.html";}
+
     @GetMapping("typerating")
     String typerating() {
         return "/html/pages/typerating/typerating.html";
@@ -55,6 +58,8 @@ public class HtmlRouteController {
 
     @GetMapping("sfitri")
     String sfitri() { return "/html/pages/sfitri/sfitri.html";}
+    @GetMapping("courseContact")
+    String courseContract() { return "/html/pages/courseContact/courseContact.html";}
 }
 
 

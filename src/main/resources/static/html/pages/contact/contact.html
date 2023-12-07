@@ -12,12 +12,9 @@
     <link rel="stylesheet" href="/css/general/content.css">
     <link rel="stylesheet" href="/css/pages/contact/contact.css">
     <link rel="stylesheet" href="/css/general/navbar.css">
-
 </head>
 
 <body>
-
-    
     <div id="navbar-container"></div>
 
     <div class="content-container">
@@ -42,13 +39,20 @@
                         <label for="message">Message:</label>
                         <textarea id="message" rows="3" required></textarea>
                     </div>
+                    <div class="form-group" id="privacyPolicyGroup">
+                        <label for="privacyPolicy" class="privacy-policy">
+                            <input class="checkbox" type="checkbox" id="privacyPolicy" required>
+                            I agree to the
+                            <a href="/privacypolicy" class="privacy-policy-link">Privacy Policy </a>
+                        </label>
+                    </div>
                     <button onclick="sendEmail()" id="submitButton">Submit</button>
                     <div id="statusMessage"></div>
                 </form>
 
             </div>
             <div class="image-container">
-                <img src="https://scanditraining.com/wp-content/uploads/2021/09/transparent1-1.png"
+                <img src="/billeder/contactimage.png"
                     alt="ScandiTraining Image">
             </div>
         </div>
