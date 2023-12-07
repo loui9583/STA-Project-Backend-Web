@@ -19,6 +19,7 @@ async function sendEmail() {
 }
 
 async function sendEmail2() {
+    const privacyPolicyCheckbox = document.getElementById("privacyPolicy");
     const fullName = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const phoneNumber = document.getElementById("phone-number").value;
@@ -37,9 +38,16 @@ async function sendEmail2() {
     const message = document.getElementById("message").value;
     const formString = 'Name: ' + fullName + '. Email: ' + email + '. Phone Number: ' + phoneNumber + '. Address: ' + address + '. Course: ' + course + '. Course Other:' + courseOther + '. License Country: ' + licenseCountry + '. License: ' + license + '. Rating Expiry Date: ' + ratingExpiryDate + '. Flight Hours: ' + flightHours + '. Last Flight Date: ' + lastFlightDate + '. Other MPA: ' + otherMPA + '. Other BPN: ' + otherBPN + '. Position: ' + position + '. Venue: ' + venue + '. Message: ' + message;
 
-    const response = await fetch("api/sendEmail/user-email/" + email + "/email-content/" + formString + "/customer-name/" + fullName, {
-        method: 'POST',
-    });
+    if (!privacyPolicyCheckbox.checked) {
+        alert("Please agree to the Privacy Policy before submitting the form.");
+        return;
+    }
+
+    if (privacyPolicyCheckbox.checked) {
+        const response = await fetch("api/sendEmail/user-email/" + email + "/email-content/" + formString + "/customer-name/" + fullName, {
+            method: 'POST',
+        });
+    }
 }
 
 
