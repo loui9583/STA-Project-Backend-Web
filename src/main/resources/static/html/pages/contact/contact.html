@@ -40,13 +40,10 @@
                         <textarea id="message" rows="3" required></textarea>
                     </div>
                     <div class="form-group" id="privacyPolicyGroup">
-                        <label for="privacyPolicy" class="privacy-policy">
-                            <input class="checkbox" type="checkbox" id="privacyPolicy" required>
-                            I agree to the
-                            <a href="/privacypolicy" class="privacy-policy-link">Privacy Policy </a>
-                        </label>
+                        <p>By clicking submit, I agree to the <a href="/privacypolicy">Privacy Policy</a> </p>
+
                     </div>
-                    <button onclick="sendEmail()" id="submitButton">Submit</button>
+                    <button onclick="sendEmail()" id="submitButton" style="height: 3em; display: flex; justify-content: center; align-items: center; font-size: 1.2em;" type="submit">Submit</button>
                     <div id="statusMessage"></div>
                 </form>
 
