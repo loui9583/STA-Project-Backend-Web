@@ -1,0 +1,116 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
+
+body {
+    height: 100svh;
+    font-family: 'Varela Round', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: rgb(247, 247, 247);
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+.contact-form {
+    width: 45%;
+}
+
+.image-container {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.privacy-policy {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkbox {
+    margin-right: 8px;
+    width: 20px;
+}
+
+.privacy-policy-link {
+    margin-left: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2c97f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1286eb;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .image-container {
+       display: none;
+    }
+}
+
+.custom-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2c97f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    float: right;
+    margin-top: 20px;
+}
+
+.custom-button:hover {
+    background-color: #1e6aa8;
+}
