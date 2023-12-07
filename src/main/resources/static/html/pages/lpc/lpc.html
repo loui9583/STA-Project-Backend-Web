@@ -56,15 +56,15 @@
             <div style="display: flex; justify-content: center;">
                 <div style="width: 90%; padding: 0;" class="flights-overview">
                     <div style="display: flex; justify-content: center;">
-                        <button class="selected" data-flight="boeing-737"
-                            onclick="toggleFlight('boeing-737')">B737</button>
-                        <button data-flight="boeing-787" onclick="toggleFlight('boeing-787')">B787</button>
-                        <button data-flight="boeing-777" onclick="toggleFlight('boeing-777')">B777</button>
-                        <button data-flight="airbus-320" onclick="toggleFlight('airbus-320')">A320</button>
+                        <button class="selected" data-flight="B737"
+                            onclick="toggleFlight('B737')">B737</button>
+                        <button data-flight="B787" onclick="toggleFlight('B787')">B787</button>
+                        <button data-flight="B777" onclick="toggleFlight('B777')">B777</button>
+                        <button data-flight="A320" onclick="toggleFlight('A320')">A320</button>
                     </div>
 
                     <!-- Boeing 737 -->
-                    <div style="display: block;" id="boeing-737" class="flight-info">
+                    <div style="display: block;" id="B737" class="flight-info">
 
                         <h3><strong>Boeing 737</strong></h3>
 
@@ -94,7 +94,7 @@
                     </div>
 
                     <!-- Boeing 787 -->
-                    <div id="boeing-787" class="flight-info">
+                    <div id="B787" class="flight-info">
                         <h3><b>Boeing 787</b></h3>
                         <br>
                         <h4>Revalidation</h4>
@@ -120,7 +120,7 @@
                     </div>
 
                     <!-- Boeing 777 -->
-                    <div id="boeing-777" class="flight-info">
+                    <div id="B777" class="flight-info">
                         <h3><b>Boeing 777</b></h3>
                         <br>
                         <h4>Revalidation</h4>
@@ -146,7 +146,7 @@
                     </div>
 
                     <!-- Airbus A320 -->
-                    <div id="airbus-320" class="flight-info">
+                    <div id="A320" class="flight-info">
                         <h3><b>Airbus A320</b></h3>
                         <br>
                         <h4>Revalidation</h4>
@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div style="display: flex; justify-content: center;">
-                <a class="btn btn-primary" style="background: #2c97f4;" href="courseContact">
+                <a class="btn btn-primary" style="background: #2c97f4;" onclick="contactLPC()">
                     Contact Us Today And Learn More
                 </a>
             </div>
@@ -183,6 +183,12 @@
     <footer id="footer-container"></footer>
 
     <script>
+        function contactLPC() {
+            const type = document.querySelector('.flights-overview button.selected').dataset.flight;
+
+            window.location.href = `/courseContact?title=${type} LPC Revalidation`;
+        }
+
         function toggleFlight(flightId) {
             var flights = document.querySelectorAll('.flight-info');
             var buttons = document.querySelectorAll('.flights-overview button');
