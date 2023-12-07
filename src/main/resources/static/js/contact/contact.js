@@ -26,7 +26,7 @@ async function sendEmail2() {
         const phoneNumber = document.getElementById("phone-number").value;
         const address = document.getElementById("address").value;
         const course = document.getElementById("course-type").value;
-        const courseOther = document.getElementById("other").value;
+        const courseOther = document.getElementById("course-type-other").value;
         const licenseCountry = document.getElementById("license-country").value;
         const license = document.getElementById("license").value;
         const ratingExpiryDate = document.getElementById("rating-expiry-date").value;
