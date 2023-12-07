@@ -72,6 +72,7 @@ async function sendEmail2() {
         // Handle errors
         console.error('Error sending email:', error.message);
         // You can show an error message to the user, redirect, or perform other actions.
+
     }
 }
 
