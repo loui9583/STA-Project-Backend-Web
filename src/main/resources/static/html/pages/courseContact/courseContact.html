@@ -64,8 +64,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="other">If 'other', please specify</label>
-                        <textarea id="other"></textarea>
+                        <label for="course-type-other">If 'other', please specify</label>
+                        <textarea id="course-type-other"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -206,15 +206,27 @@
         let venueParam ="";
     function getValues(){
         const urlParams = new URLSearchParams(window.location.search);
-startDateParam = urlParams.get('startDate');
-titleParam = urlParams.get('title');
-venueParam = urlParams.get('venue')
+    startDateParam = urlParams.get('startDate');
+    titleParam = urlParams.get('title');
+    venueParam = urlParams.get('venue');
 
+    const courses = document.getElementById("course-type");
+    console.log(courses)
+    let courseFound = false;
+    for (let i = 0; i < courses.length; i++) {
+    if (courses[i].value == titleParam) {
+    courseFound = true;
+    }
+    }
 
-
-document.getElementById("date").value = startDateParam;
-document.getElementById("course-type").value = titleParam;
-document.getElementById("venue").value = venueParam;
+    if (courseFound == true) {
+        document.getElementById("course-type").value = titleParam;
+    } else {
+        document.getElementById("course-type").value = "Other";
+        document.getElementById("course-type-other").value = titleParam;
+    }
+    document.getElementById("date").value = startDateParam;
+    document.getElementById("venue").value = venueParam;
 
     }
 
