@@ -63,6 +63,10 @@
                             <option value="Other">Other</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="other">If 'other', please specify</label>
+                        <textarea id="other"></textarea>
+                    </div>
 
                     <div class="form-group">
                         <label for="license-country">License Country:</label>
@@ -135,36 +139,11 @@
                     </div>
                     <div class="form-group">
                         <label for="venue">Preferred Venue:</label>
-                        <select id="venue" name="venue" class="form-select">
-                            <option value="">Select Venue</option>
-                            <option value="Abu Dhabi">Abu Dhabi</option>
-                            <option value="Amsterdam">Amsterdam</option>
-                            <option value="Barcelona">Barcelona</option>
-                            <option value="Berlin">Berlin</option>
-                            <option value="Brussels">Brussels</option>
-                            <option value="Burgees Hill">Burgees Hill</option>
-                            <option value="Copenhagen">Copenhagen</option>
-                            <option value="Dubai">Dubai</option>
-                            <option value="Dublin">Dublin</option>
-                            <option value="Essen">Essen</option>
-                            <option value="Frankfurt">Frankfurt</option>
-                            <option value="Gatwick">Gatwick</option>
-                            <option value="Madrid">Madrid</option>
-                            <option value="Heathrow">Heathrow</option>
-                            <option value="Helsinki">Helsinki</option>
-                            <option value="Manchester">Manchester</option>
-                            <option value="Milan">Milan</option>
-                            <option value="Mönchengladbach">Mönchengladbach</option>
-                            <option value="Münich">Münich</option>
-                            <option value="Oslo">Oslo</option>
-                            <option value="Palma De Mallorca">Palma De Mallorca</option>
-                            <option value="Paris">Paris</option>
-                            <option value="Prague">Prague</option>
-                            <option value="Stockholm">Stockholm</option>
-                            <option value="Vienna">Vienna</option>
-                            <option value="Vilnius">Vilnius</option>
-                            <option value="Zürich">Zürich</option>
-                        </select>
+                        <input type="text" id="venue">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="datetime-local" id="date">
                     </div>
                     <div class="form-group">
                         <label for="message">Message:</label>
@@ -186,6 +165,29 @@
     </div>
 
     <footer id="footer-container"></footer>
+    <script>
+
+        let startDateParam ="";
+        let titleParam = "";
+        let venueParam ="";
+    function getValues(){
+        const urlParams = new URLSearchParams(window.location.search);
+startDateParam = urlParams.get('startDate');
+titleParam = urlParams.get('title');
+venueParam = urlParams.get('venue')
+
+
+
+document.getElementById("date").value = startDateParam;
+document.getElementById("course-type").value = titleParam;
+document.getElementById("venue").value = venueParam;
+
+    }
+
+    getValues();
+
+
+    </script>
 
     <script src="/js/general/navfooterloader.js"></script>
     <script src="/js/contact/contact.js"></script>
