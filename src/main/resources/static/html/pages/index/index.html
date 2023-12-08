@@ -95,12 +95,12 @@
 
 
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                <button style="display: none"  class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
                         data-bs-slide="prev">
                     <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                <button style="display: none" class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
                         data-bs-slide="next">
                     <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
@@ -125,11 +125,9 @@
                     <a class="ag-courses-item_link">
                         <div class="ag-courses-item_bg"></div>
 
-                        <div style="letter-spacing: 0.1em" class="ag-courses-item_title">
+                        <div style="letter-spacing: 0.1em; margin-bottom: -20px;" class="ag-courses-item_title">
                             ${data[i].title}
                         </div>
-                        <p style="color: white; z-index: 100;">
-                            ${data[i].description} </p><br>
                          <span style="color: white"><b>🌍${data[i].venue}</b>
                          <br>
                          <input style="background: none; color: darkorange" value="${data[i].startDate}" readonly type="datetime-local">
@@ -138,12 +136,11 @@
                             <div>
 
                                     <span class="ag-courses-item_date">
-                                    <span style="color: white" onclick="window.location.href='/courseContact?startDate=${data[i].startDate}&title=${data[i].title}&venue=${data[i].venue}'"><b>✉️Contact Us</b></span>
+                                    <span style="color: white; cursor: pointer" onclick="window.location.href='/courseContact?startDate=${data[i].startDate}&title=${data[i].title}&venue=${data[i].venue}'"><b>✉️Contact Us</b></span>
                                            </span>
                             </div>
 
-
-                            <span onclick="window.location.href='${data[i].pageLink}'"><b>📖Learn More</b></span>
+                            <span style="cursor: pointer" onclick="window.location.href='${data[i].pageLink}'"><b>📖Learn More</b></span>
                         </div>
                     </a>
                 </div>
@@ -170,7 +167,7 @@
         for (let i = 0; i<data.length; i++){
             if (i==0){
                 testimonialString+=
-                    `<div class="carousel-item active" data-bs-interval="5000">
+                    `<div class="carousel-item active" data-bs-interval="3500">
                 <figure class="snip1139 mx-auto">
                     <blockquote>${data[i].text}
                         <div class="arrow"></div>

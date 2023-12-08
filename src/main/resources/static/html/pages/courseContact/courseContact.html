@@ -134,58 +134,22 @@
                         <label for="message">Message:</label>
                         <textarea id="message" rows="3" required></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="privacyPolicy">
-                            I agree to the
-                            <a href="/privatepolicy">Privacy Policy</a>
-                            <input style="margin-left: 10px;" class="form-check-input" value="yes" type="checkbox"
-                                required>
-                        </label>
+                    <div class="form-group" style="display: flex; justify-content: start">
+                        <p>By clicking submit, I agree to the <a href="/privacypolicy">Privacy Policy</a> </p>
+
                     </div>
-                    <button style="margin-bottom: 15px;" onclick="sendEmail2()" id="submitButton" data-toggle="modal" data-target="#myModal" type="button">Submit</button>
-                    <div id="statusMessage"></div>
+                    <button style="margin-bottom: 15px;" onclick="sendEmail2()" id="submitButton" data-toggle="modal" type="button">Submit</button>
+                    <div style="height: 3em; display: flex; justify-content: center; align-items: center; font-size: 1.2em;" id="statusMessage"></div>
                 </form>
             </div>
         </div>
     </div>
 
-    <div id="modalOuterDiv" style="background-color: rgba(0, 0, 0, 0.185); display: flex; justify-content: center; align-items: center; display: none;" >
-   
-        <div style="display: flex; "class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Mail sent</h5>
-              
-            </div>
-            <div class="modal-body">
-              <p>Your email has been sent. We will respond to your inquiry as soon as possible.</p>
-              <p>A confirmation email has been sent. Please check your spam filter.</p>
-              <p>Thank you for choosing Scandinavian Training Academy</p>
-            </div>
-            <div class="modal-footer">
-              <a href="/" class="btn btn-primary">Ok</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-      
 
     <footer id="footer-container"></footer>
     
     
     <script>
-
-        let submitButton = document.getElementById("submitButton");
-        submitButton.onclick = showModalOuterDiv;
-
-        function showModalOuterDiv(){
-            document.getElementById("modalOuterDiv").style.display="block";
-        }
-
-
         let startDateParam ="";
         let titleParam = "";
         let venueParam ="";
@@ -226,12 +190,8 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
         <!-- Bootstrap CSS -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="...">
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="..." crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="..." crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="..." crossorigin="anonymous"></script>
 
 </body>
 
