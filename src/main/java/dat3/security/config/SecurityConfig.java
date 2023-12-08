@@ -38,7 +38,7 @@ import javax.crypto.spec.SecretKeySpec;
 @Configuration
 public class SecurityConfig {
 
-  //Remove default value below BEFORE deployment
+
   @Value("${app.secret-key}")
   private String tokenSecret;
 
@@ -70,6 +70,23 @@ public class SecurityConfig {
 
             //Allow index.html and everything else on root level. So make sure to put ALL your endpoints under /api
             .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/*")).permitAll()
+
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/index")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/about")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/contract")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/privacypolicy")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/typerating")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/a320")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/b777")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/b787")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/lpc")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/sfitri")).permitAll()
+            .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.GET,"/courseContract")).permitAll()
+
+
+
+
 
             .requestMatchers(mvcMatcherBuilder.pattern("/error")).permitAll()
             .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.POST, "/api/auth/adminPortal-login")).permitAll()

@@ -1,25 +1,9 @@
-async function sendEmail() {
-    const privacyPolicyCheckbox = document.getElementById("privacyPolicy");
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const subject = document.getElementById("subject").value;
-    const message = document.getElementById("message").value;
-    const formString = `Name: ${name}. Email: ${email}. Subject: ${subject}. Message: ${message}`
-
-    if (!privacyPolicyCheckbox.checked) {
-        alert("Please agree to the Privacy Policy before submitting the form.");
-        return;
-    }
-
-    if (privacyPolicyCheckbox.checked) {
-        const response = await fetch("api/sendEmail/user-email/" +
-            email + "/email-content/" + formString + "/customer-name/" + name, {
-            method: 'POST',
-        });
-    }
-}
-
 async function sendEmail2() {
+    event.preventDefault();
+    stmsg = document.getElementById("statusMessage");
+    stmsg.style.background="darkgrey";
+    stmsg.style.color="white";
+    stmsg.innerText="Sending email, please wait..."
     try {
         const fullName = document.getElementById("name").value;
         const email = document.getElementById("email").value;
@@ -40,7 +24,8 @@ async function sendEmail2() {
         const message = document.getElementById("message").value;
 
 
-        const formString = `Name: ${fullName}. 
+        const formString = `
+        Name: ${fullName}. 
         Email: ${email}. Phone Number: ${phoneNumber}. 
         Address: ${address}. 
         Course: ${course}. 
@@ -57,11 +42,71 @@ async function sendEmail2() {
         Date: ${date},
         Message: ${message}`;
 
+
+
         const response = await fetch("api/sendEmail/user-email/" + email + "/email-content/" + formString + "/customer-name/" + fullName, {
             method: 'POST',
         });
 
+        if (response.ok){
+            stmsg.style.background="green";
+
+            stmsg.innerText="Email Sent Successfully!"
+        }
+
         if (!response.ok) {
+            stmsg.style.background="red";
+
+            stmsg.innerText="Error sending email. Please contact us manually at (real company email here)."
+            const errorMessage = `Failed to send email. Server responded with status ${response.status}: ${response.statusText}`;
+            throw new Error(errorMessage);
+        }
+
+        // Handle the result as needed (e.g., show success message, redirect, etc.)
+        console.log('Email sent successfully:');
+    } catch (error) {
+        // Handle errors
+        console.error('Error sending email:', error.message);
+        // You can show an error message to the user, redirect, or perform other actions.
+    }
+}
+
+async function sendEmail() {
+    event.preventDefault();
+    stmsg = document.getElementById("statusMessage");
+    stmsg.style.background="darkgrey";
+    stmsg.style.color="white";
+    stmsg.innerText="Sending email, please wait..."
+    try {
+        const fullName = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
+
+
+        const formString = `
+        Name: ${fullName}. 
+        Email: ${email}. 
+        Subject: ${subject}. 
+        Message: ${message}. 
+        `
+
+
+
+        const response = await fetch("api/sendEmail/user-email/" + email + "/email-content/" + formString + "/customer-name/" + fullName, {
+            method: 'POST',
+        });
+
+        if (response.ok){
+            stmsg.style.background="green";
+
+            stmsg.innerText="Email Sent Successfully!"
+        }
+
+        if (!response.ok) {
+            stmsg.style.background="red";
+
+            stmsg.innerText="Error sending email. Please contact us manually at (real company email here)."
             const errorMessage = `Failed to send email. Server responded with status ${response.status}: ${response.statusText}`;
             throw new Error(errorMessage);
         }
