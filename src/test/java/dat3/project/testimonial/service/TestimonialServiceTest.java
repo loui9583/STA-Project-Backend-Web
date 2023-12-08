@@ -46,7 +46,7 @@ class TestimonialServiceTest {
     }
 
     @Test
-    void addTestimonial_ShouldReturnTestimonialResponse() {
+    void addTestimonial() {
         TestimonialRequest request = new TestimonialRequest();
         request.setText("Testimonial content");
 
