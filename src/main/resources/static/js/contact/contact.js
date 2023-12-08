@@ -1,4 +1,5 @@
 async function sendEmail2() {
+    event.preventDefault();
     stmsg = document.getElementById("statusMessage");
     stmsg.style.background="darkgrey";
     stmsg.style.color="white";
@@ -71,6 +72,7 @@ async function sendEmail2() {
 }
 
 async function sendEmail() {
+    event.preventDefault();
     stmsg = document.getElementById("statusMessage");
     stmsg.style.background="darkgrey";
     stmsg.style.color="white";
